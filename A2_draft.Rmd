@@ -1,0 +1,76 @@
+---
+title: "Assignment2"
+author: "Christina Meier"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Inspect the data
+```{r}
+dat <- read.csv("BirdBehaviour.csv")
+```
+
+```{r}
+head(dat)
+tail(dat)
+dim(dim)
+str(dat)
+```
+
+```{r}
+which(is.na(dat))
+
+```
+No missing values
+
+See if data is normally distributed
+```{r}
+(dat_1 <- ggplot(dat, aes(x = Sleep)) +
+  geom_histogram())
+```
+
+```{r}
+(dat_2 <- ggplot(dat, aes(x = Mate)) +
+  geom_histogram())
+```
+
+```{r}
+(dat_3 <- ggplot(dat, aes(x = Forage)) +
+  geom_histogram())
+```
+
+```{r}
+(dat_4 <- ggplot(dat, aes(x = Groom)) +
+  geom_histogram())
+```
+
+```{r}
+(dat_5 <- ggplot(dat, aes(x = ID)) +
+  geom_histogram())
+```
+
+I wouldn't change anything
+
+```{r}
+(dat_1 + dat_2 + dat_3 + dat_4 | dat_5)
+```
+
+Calculate coefficients between each pair of behaviours
+
+```{r}
+cor
+```
